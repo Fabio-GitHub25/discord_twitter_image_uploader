@@ -12,9 +12,9 @@ __Used technologies:__
 Node.js uses an event-driven architecture, making it possible to execute code when a specific event occurs.The discord.js library takes full advantage of this.
 
 __Main tasks of the script:__
-1. Retweet Tweet
+1. Retweet tweet
    - Listen to specific channel(s) if a new message with a Twitter link has been posted
-   - Retweet given Tweet link
+   - Retweet given tweet link
 2. Image Upload
    - Listen to certain Discord channel(s) if a new message with an image has been posted
    - Download image from Discord channel
@@ -26,7 +26,7 @@ __Main tasks of the script:__
 
 ## Setup
 __Required Node.js version 16.6+__
-1. Clone the git repository (and install / update Node.js if you don't have it yet)
+1. Clone the Git repository (and install / update Node.js if you don't have it already)
 2. Create a __.env__ file in the root directory and add the following properties
     ```
     DISCORD_SECRET_TOKEN=<Your Discord secret token>
@@ -67,18 +67,18 @@ Then the Discord bot listens for various events in the channels you specified ea
 
     If it contains a Twitter link it will be retweeted automatically.
 
-    If the message contains an image, the image is downloaded from Discord and uploaded to Twitter. After that, the bot DMs the user that his/her picture has been uploaded to Twitter.
+    If the message contains an image, the image is downloaded from Discord and uploaded to Twitter. After that, the bot sends a DM to the user that their image has been uploaded to Twitter.
 
-    In addition, an entry is made in the logs to ensure the possible later deletion of a tweet
+    In addition, an entry is made in the logs to ensure any possible future deletion of a tweet.
 
 2. __Message reaction add [event](https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-messageReactionAdd):__
 
-    When a new reaction to an already posted image is added in Discord, the script checks if the user who add the reaction is the author of the message or an explicit authorized user (AUTHORIZED_DISCORD_USER_IDS) __AND__ the reaction is a trash can (🗑️)
+    When a new reaction to an already posted image is added in Discord, the script checks if the user adding the reaction is the author of the message or an explicit authorized user (AUTHORIZED_DISCORD_USER_IDS) __AND__ the reaction is a trash can (🗑️).
 
     If everything is correct, the image and the message will be deleted from Discord and Twitter.
 
 __"logs"__ folder contains
-- "alreadyReceivedInfoMessageUserIds.json" - list of user ids which already get the DM from the bot that his/her picture has been uploaded to Twitter
+- "alreadyReceivedInfoMessageUserIds.json" - list of user ids that have already received a DM from the bot that their image has been uploaded to Twitter
 - "twitterDiscordMessagesLog.json" - mapping of uploaded images on Twitter (Discord author id, Discord message id, Tweet id)
 
 
